@@ -106,6 +106,38 @@ def gameplay():
 					print("Congratulations! Player 1 has won")
 					game_on = False
 
-				
+				else:
+					if fullBoardCheck():
+						print('It is a Tie!')
+					else:
+						turn = 'Player 2'
+
+
+			else if turn == 'Player 2':
+
+				printBoard(theBoard)
+				position = playerChoice()
+				storeUserInputToList(theBoard,position,player2_marker)
+				printBoard(theBoard)
+
+				if winCheck(theBoard,player2_marker):
+					printBoard(theBoard)
+					print("Congratulations! Player 2 has won")
+					game_on = False
+
+				else:
+					if fullBoardCheck():
+						print('It is a Tie!')
+					else:
+						turn = 'Player 1'
+
+			if replay():
+				continue
+			else:
+				break
+
+
+
+
 
 
