@@ -109,7 +109,7 @@ def gameplay():
 				else:
 					if fullBoardCheck(theBoard):
 						print('It is a Tie!')
-                        break
+						break
 					else:
 						turn = 'Player 2'
 
@@ -129,7 +129,7 @@ def gameplay():
 				else:
 					if fullBoardCheck(theBoard):
 						print('It is a Tie!')
-                        break
+						break
 					else:
 						turn = 'Player 1'
 
