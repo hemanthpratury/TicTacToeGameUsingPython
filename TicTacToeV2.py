@@ -64,7 +64,7 @@ def playerChoice(board):
 
     pos = ' '
 
-    while(pos not in '1 2 3 4 5 6 7 8 9'.split() or not in spaceCheck(board,int(pos))):
+    while(pos not in '1 2 3 4 5 6 7 8 9'.split() or not spaceCheck(board,int(pos))):
         pos = input('Choose your next position: (1-9)')
 
     return pos
@@ -97,8 +97,8 @@ def gameplay():
 			if turn == 'Player 1':
 
 				printBoard(theBoard)
-				position = playerChoice()
-				storeUserInputToList(theBoard,position,player1_marker)
+				position = playerChoice(theBoard)
+				storeUserInputToList(theBoard,int(position),player1_marker)
 				printBoard(theBoard)
 
 				if winCheck(theBoard,player1_marker):
@@ -107,17 +107,18 @@ def gameplay():
 					game_on = False
 
 				else:
-					if fullBoardCheck():
+					if fullBoardCheck(theBoard):
 						print('It is a Tie!')
+                        break
 					else:
 						turn = 'Player 2'
 
 
-			else if turn == 'Player 2':
+			elif turn == 'Player 2':
 
 				printBoard(theBoard)
-				position = playerChoice()
-				storeUserInputToList(theBoard,position,player2_marker)
+				position = playerChoice(theBoard)
+				storeUserInputToList(theBoard,int(position),player2_marker)
 				printBoard(theBoard)
 
 				if winCheck(theBoard,player2_marker):
@@ -126,18 +127,13 @@ def gameplay():
 					game_on = False
 
 				else:
-					if fullBoardCheck():
+					if fullBoardCheck(theBoard):
 						print('It is a Tie!')
+                        break
 					else:
 						turn = 'Player 1'
 
-			if replay():
-				continue
-			else:
-				break
-
-
-
-
-
-
+		if replay():
+			continue
+		else:
+			break
